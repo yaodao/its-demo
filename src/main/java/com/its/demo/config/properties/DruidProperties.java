@@ -18,7 +18,8 @@ public class DruidProperties {
     private String password;
 
     // mysql connector 6.0以下用这个
-    private String driverClassName = "com.mysql.jdbc.Driver";
+//    private String driverClassName = "com.mysql.jdbc.Driver";
+    private String driverClassName = "org.postgresql.Driver";
 
     private Integer initialSize = 10;
 

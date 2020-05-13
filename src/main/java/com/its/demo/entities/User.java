@@ -3,11 +3,9 @@ package com.its.demo.entities;
 public class User {
     private String name;
 
-    private Integer no;
-
     private String addr;
 
-    private Integer age;
+    private Long age;
 
     public String getName() {
         return name;
@@ -15,14 +13,6 @@ public class User {
 
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
-    }
-
-    public Integer getNo() {
-        return no;
-    }
-
-    public void setNo(Integer no) {
-        this.no = no;
     }
 
     public String getAddr() {
@@ -33,11 +23,11 @@ public class User {
         this.addr = addr == null ? null : addr.trim();
     }
 
-    public Integer getAge() {
+    public Long getAge() {
         return age;
     }
 
-    public void setAge(Integer age) {
+    public void setAge(Long age) {
         this.age = age;
     }
 }

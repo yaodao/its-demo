@@ -42,6 +42,7 @@ public class HelloWorldController {
         User user = new User();
         user.setName("aabb11");
         user.setAddr("peking");
+        user.setAge(null);
         return userService.insertUser(user);
     }
 }
