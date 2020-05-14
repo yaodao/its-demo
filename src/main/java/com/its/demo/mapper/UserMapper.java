@@ -1,9 +1,13 @@
 package com.its.demo.mapper;
 
 import com.its.demo.entities.User;
+import org.apache.ibatis.annotations.Param;
+import tk.mybatis.mapper.common.Mapper;
 
-public interface UserMapper {
-    int insert(User record);
+import java.util.List;
 
-    int insertSelective(User record);
+public interface UserMapper extends Mapper<User> {
+    List<User> getByName(@Param("name") String userName);
+
+    List<User> getByAddr(@Param("addr") String userAddr);
 }

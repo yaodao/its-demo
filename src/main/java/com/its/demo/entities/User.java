@@ -1,5 +1,8 @@
 package com.its.demo.entities;
 
+import javax.persistence.Table;
+
+@Table(name = "ticcschema.user")
 public class User {
     private String name;
 
