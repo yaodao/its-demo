@@ -73,6 +73,15 @@ public class HelloWorldController {
         return userPgService.insertUserWithException(user);
     }
 
+    @GetMapping("/addUserOtherWithException")
+    public int addUserOtherWithException() throws Exception {
+        logger.info("调用addUserPq方法");
+        User user = new User();
+        user.setName("dd6");
+        user.setAddr("ddpeking6");
+        return otherService.insertUserWithException(user);
+    }
+
     @GetMapping("/addUserBoth")
     public int addUserBoth() {
         logger.info("调用addUserBoth方法");

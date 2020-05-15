@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface OtherService {
     List<User> getUser(String userName);
+    int insertUserWithException(User user) throws Exception;
 }
