@@ -3,8 +3,6 @@ package com.its.demo.entities;
 public class User {
     private String name;
 
-    private Integer no;
-
     private String addr;
 
     private Integer age;
@@ -15,14 +13,6 @@ public class User {
 
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
-    }
-
-    public Integer getNo() {
-        return no;
-    }
-
-    public void setNo(Integer no) {
-        this.no = no;
     }
 
     public String getAddr() {

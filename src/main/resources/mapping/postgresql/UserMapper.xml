@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.its.demo.mapper.pq.UserPgMapper">
+    <resultMap id="BaseResultMap" type="com.its.demo.entities.User">
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="addr" property="addr" jdbcType="VARCHAR"/>
+        <result column="age" property="age" jdbcType="BIGINT"/>
+    </resultMap>
+
+    <select id="getByName" resultType="com.its.demo.entities.UserPq" parameterType="java.lang.String">
+        select * from ticcschema.user
+        <if test="name != null">
+            where name like concat('%', #{name}, '%')
+        </if>
+    </select>
+    <select id="getByAddr" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select * from ticcschema.user
+        <if test="addr != null">
+            where addr like concat('%', #{addr}, '%')
+        </if>
+    </select>
+</mapper>
