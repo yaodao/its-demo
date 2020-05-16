@@ -1,4 +1,4 @@
-package com.its.demo.config.properties;
+package com.its.demo.config.datasource.properties;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.util.JdbcConstants;

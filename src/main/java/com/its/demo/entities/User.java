@@ -1,5 +1,9 @@
 package com.its.demo.entities;
 
+import javax.persistence.Table;
+
+// 由于使用的是同一个model，所以测试mysql时，需要将这个注解注掉。
+@Table(name = "ticcschema.user")
 public class User {
     private String name;
 

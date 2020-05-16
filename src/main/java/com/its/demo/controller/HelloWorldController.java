@@ -1,9 +1,6 @@
 package com.its.demo.controller;
 
 import com.its.demo.entities.User;
-import com.its.demo.entities.UserPq;
-import com.its.demo.service.UserPgService;
-import com.its.demo.service.OtherService;
 import com.its.demo.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,11 +17,6 @@ public class HelloWorldController {
     @Resource(name = "userService")
     UserService userService;
 
-    @Resource(name = "userPgService")
-    UserPgService userPgService;
-
-    @Resource(name = "otherService")
-    OtherService otherService;
 
     @RequestMapping("/logtest")
     @ResponseBody
@@ -41,59 +33,36 @@ public class HelloWorldController {
     public int addUser() {
         logger.info("调用addUser方法");
         User user = new User();
-        user.setName("aa1");
-        user.setAddr("aa21");
+        user.setName("aa3");
+        user.setAddr("aa33");
         return userService.insertUser(user);
     }
 
     @GetMapping("/addUserWithException")
     public int addUserWithException() throws Exception {
-        logger.info("调用addUser方法");
+        logger.info("调用addUserWithException方法");
         User user = new User();
-        user.setName("aa3");
-        user.setAddr("aa3");
+        user.setName("aa5");
+        user.setAddr("aa5");
         return userService.insertUserWithException(user);
     }
 
     @GetMapping("/addUserPq")
     public int addUserPq() {
         logger.info("调用addUserPq方法");
-        UserPq user = new UserPq();
-        user.setName("dd1");
-        user.setAddr("ddpeking1");
-        return userPgService.insertUser(user);
+        User user = new User();
+        user.setName("dd33");
+        user.setAddr("ddpeking33");
+        return userService.insertUserPq(user);
     }
 
     @GetMapping("/addUserPqWithException")
     public int addUserPqWithException() throws Exception {
-        logger.info("调用addUserPq方法");
-        UserPq user = new UserPq();
-        user.setName("dd3");
-        user.setAddr("ddpeking3");
-        return userPgService.insertUserWithException(user);
-    }
-
-    @GetMapping("/addUserOtherWithException")
-    public int addUserOtherWithException() throws Exception {
-        logger.info("调用addUserPq方法");
+        logger.info("调用addUserPqWithException方法");
         User user = new User();
-        user.setName("dd6");
-        user.setAddr("ddpeking6");
-        return otherService.insertUserWithException(user);
-    }
-
-    @GetMapping("/addUserBoth")
-    public int addUserBoth() {
-        logger.info("调用addUserBoth方法");
-        User user = new User();
-        user.setName("aa12");
-        user.setAddr("aa212");
-        userService.insertUser(user);
-
-        UserPq userPq = new UserPq();
-        userPq.setName("dd12");
-        userPq.setAddr("ddpeking12");
-        return userPgService.insertUser(userPq);
+        user.setName("dd5");
+        user.setAddr("ddpeking5");
+        return userService.insertUserPqWithException(user);
     }
 
     @GetMapping("/getUser")
@@ -103,16 +72,11 @@ public class HelloWorldController {
     }
 
     @GetMapping("/getUserPq")
-    public List<UserPq> getUserPq(@RequestParam("name") String name) {
+    public List<User> getUserPq(@RequestParam("name") String name) {
         logger.info("调用getUserPq方法, name={}", name);
-        return userPgService.getUser(name);
+        return userService.getUserPg(name);
     }
 
-    @GetMapping("/getUserBoth")
-    public List<User> getUserBoth(@RequestParam("name") String name) {
-        logger.info("调用getUserBoth方法, name={}", name);
-        return otherService.getUser(name);
-    }
 
     @GetMapping("/getUsePage")
     public List<User> getUsePage(@RequestParam("name") String name) {
@@ -121,8 +85,8 @@ public class HelloWorldController {
     }
 
     @GetMapping("/getUsePagePq")
-    public List<UserPq> getUsePagePq(@RequestParam("name") String name) {
+    public List<User> getUsePagePq(@RequestParam("name") String name) {
         logger.info("调用getUsePagePq方法, name={}", name);
-        return userPgService.getUserByPage(name);
+        return userService.getUserPgByPage(name);
     }
 }

@@ -1,8 +1,6 @@
-package com.its.demo.config.properties;
+package com.its.demo.config.datasource.properties;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
 
 import java.sql.SQLException;
 
