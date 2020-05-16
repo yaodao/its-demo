@@ -5,14 +5,10 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
-import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
-
-import java.lang.reflect.Method;
 
 
 @Aspect
@@ -21,6 +17,7 @@ import java.lang.reflect.Method;
 public class DynamicDataSourceAspect {
     private static final Logger LOG = LoggerFactory.getLogger(DynamicDataSourceAspect.class);
 
+    // 不需要这个切面
 //    @Pointcut("execution(* com.its.demo.service.*.*(..))")
 //    public void pointCut() {
 //    }
@@ -28,6 +25,7 @@ public class DynamicDataSourceAspect {
     /**
      * 执行方法前更换数据源
      */
+    // 带这个注解的都拦截
     @Before("@annotation(targetDataSource)")
     public void doBefore(JoinPoint joinPoint, Db targetDataSource) {
         DataSourceKey dataSourceKey = targetDataSource.value();

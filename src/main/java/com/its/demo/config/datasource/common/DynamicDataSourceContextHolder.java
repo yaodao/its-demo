@@ -1,13 +1,6 @@
 package com.its.demo.config.datasource.common;
 
-import org.apache.commons.lang3.RandomUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-
 public class DynamicDataSourceContextHolder {
-    private static final Logger LOG = LoggerFactory.getLogger(DynamicDataSourceContextHolder.class);
-
     private static final ThreadLocal<DataSourceKey> currentDatesource = new ThreadLocal<>();
 
     /**

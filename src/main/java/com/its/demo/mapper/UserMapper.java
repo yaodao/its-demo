@@ -1,7 +1,5 @@
 package com.its.demo.mapper;
 
-import com.its.demo.config.datasource.common.DataSourceKey;
-import com.its.demo.config.datasource.common.Db;
 import com.its.demo.entities.User;
 import org.apache.ibatis.annotations.Param;
 import tk.mybatis.mapper.common.Mapper;
