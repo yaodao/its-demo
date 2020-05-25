@@ -52,7 +52,7 @@ public class DruidProperties {
     private String filters = "stat";
 
     public void config(DruidDataSource dataSource) {
-        dataSource.setDbType(JdbcConstants.MYSQL);
+        dataSource.setDbType(JdbcConstants.POSTGRESQL);
         dataSource.setUrl(url);
         dataSource.setUsername(username);
         dataSource.setPassword(password);
