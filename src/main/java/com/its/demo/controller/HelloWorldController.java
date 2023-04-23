@@ -38,27 +38,10 @@ public class HelloWorldController {
         return userService.insertUser(user);
     }
 
-    @GetMapping("/getUser")
-    public List<User> getUser(@RequestParam("name") String name) {
-        logger.info("调用getUser方法, name={}", name);
-        return userService.getUser(name);
-    }
-
-    @GetMapping("/getUser2")
-    public List<User> getUse2r(@RequestParam("name") String name) {
-        logger.info("调用getUser方法, name={}", name);
-        return userService.getUserByPage(name);
-    }
 
     @GetMapping("/getAddr")
     public List<User> getAddr(@RequestParam("addr") String addr) {
-        logger.info("调用getAddr方法, addr={}", addr);
-        return userService.getAddr(addr);
-    }
-
-    @GetMapping("/getAddr2")
-    public List<User> getAddr2(@RequestParam("addr") String addr) {
         logger.info("调用getAddr2方法, addr={}", addr);
-        return userService.getAddr2(addr);
+        return userService.getAddr(addr);
     }
 }

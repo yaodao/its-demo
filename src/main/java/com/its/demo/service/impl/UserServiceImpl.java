@@ -1,7 +1,5 @@
 package com.its.demo.service.impl;
 
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 import com.its.demo.entities.User;
 import com.its.demo.mapper.UserMapper;
 import com.its.demo.service.UserService;
@@ -22,33 +20,10 @@ public class UserServiceImpl implements UserService {
         return userMapper.insertSelective(user);
     }
 
-    @Override
-    public List<User> getUser(String userName) {
-        List<User> arr = userMapper.getByName(userName);
-        return arr;
-    }
-
-    @Override
     public List<User> getAddr(String userAddr) {
-        List<User> arr = userMapper.getByAddr(userAddr);
-        return arr;
-    }
-    public List<User> getAddr2(String userAddr) {
         Example example = new Example(User.class);
         Example.Criteria criteria = example.createCriteria();
         criteria.andEqualTo("addr", userAddr);
         return userMapper.selectByExample(example);
     }
-
-    @Override
-    public List<User> getUserByPage(String userName) {
-        int pageNum = 1;
-        int pageSize = 3;
-        PageHelper.startPage(pageNum, pageSize);
-        List<User> arr = userMapper.getByName(userName);
-        PageInfo pageInfo = new PageInfo(arr);
-        return arr;
-    }
-
-
 }
